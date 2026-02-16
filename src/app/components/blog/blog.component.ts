@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-blog',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css',
 })
@@ -22,5 +23,26 @@ export class BlogComponent {
       fecha: '2026-02-16'
     },
   ]
+
+  nuevaNoticia: INoticia = {
+    titulo: '',
+    imagen: '',
+    texto: '',
+    fecha: ''
+  };
+
+  avisoFallo: string = ""
+
+  recibirDatos() {
+  if (!this.nuevaNoticia.titulo || !this.nuevaNoticia.imagen || !this.nuevaNoticia.texto || !this.nuevaNoticia.fecha) {
+    this.avisoFallo = "Todos los campos son obligatorios"
+    return;
+  }
+    this.arrayNoticias.push({...this.nuevaNoticia});
+    console.log(this.arrayNoticias);
+    this.nuevaNoticia = { titulo: '', imagen: '', texto: '', fecha: '' };
+    this.avisoFallo = "";
+    
+  }
 
 }

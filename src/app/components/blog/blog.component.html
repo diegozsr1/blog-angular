@@ -1,22 +1,25 @@
 <div class="contenedor">
     <aside>
+        <h3>Inserta aquí tu noticia</h3>
+        <p>Recuerda que todos los campos son obligatorios</p>
         <form>
-            <input type="text" placeholder="Introduce el titulo de la noticia">
-            <input type="text" placeholder="Introduce la url de la imagen de la noticia">
-            <input type="text" placeholder="Introduce el texto de la noticia">
-            <input type="date" placeholder="Introduce la fecha de la noticia">
+            <input type="text" placeholder="Introduce el titulo de la noticia" [(ngModel)]="nuevaNoticia.titulo" name="titulo" required>
+            <input type="text" placeholder="Introduce la url de la imagen de la noticia" [(ngModel)]="nuevaNoticia.imagen" name="imagen" required>
+            <input type="text" placeholder="Introduce el texto de la noticia" [(ngModel)]="nuevaNoticia.texto" name="texto" required>
+            <input type="date" placeholder="Introduce la fecha de la noticia" [(ngModel)]="nuevaNoticia.fecha" name="fecha" required>
+            <p>{{avisoFallo}}</p>
 
-            <button>Enviar</button>
+            <button (click)="recibirDatos()">Enviar</button>
         </form>
     </aside>
     <div class="lista-noticias">
         @for (noticia of arrayNoticias; track $index) {
-            <section>
+            <article>
                 <h3>{{noticia.titulo}}</h3>
                 <img [src]="noticia.imagen">
                 <p>{{noticia.texto}}</p>
                 <span>{{noticia.fecha}}</span>
-            </section>
+            </article>
         }
     </div>
 </div>
