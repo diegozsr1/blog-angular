@@ -1,1 +1,12 @@
-<p>blog works!</p>
+<div class="contenedor">
+    <div class="lista-noticias">
+        @for (noticia of arrayNoticias; track $index) {
+            <section>
+                <h3>{{noticia.titulo}}</h3>
+                <img [src]="noticia.imagen">
+                <p>{{noticia.texto}}</p>
+                <span>{{noticia.fecha}}</span>
+            </section>
+        }
+    </div>
+</div>

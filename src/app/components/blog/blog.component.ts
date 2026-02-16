@@ -16,7 +16,7 @@ export class BlogComponent {
       fecha: '2026-02-16'
     },
     {
-      titulo: 'segunda noticia',
+      titulo: 'Segunda noticia',
       imagen: 'https://cdn-5.motorsport.com/images/amp/0L1yy9V2/s1000/marc-marquez-ducati-3.jpg',
       texto: 'Contenido de la segunda noticia',
       fecha: '2026-02-16'
